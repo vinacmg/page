@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height:100%;
+  background-color: black;
+  overflow: none;
+}
+
+/*scroll*/
+
+::-webkit-scrollbar {
+    width: 0.45vw;
+}
+
+::-webkit-scrollbar-track {
+    background: black; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #414141; 
+}
+/*ids*/
+
+#cover {
+  height: 100vh;
+  width: 100%;
+  color: white;
+  /*
+  background-image: url("../img/photo.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  */
+}
+
+#midline{
+  height: 84vh;
+  width: 10px;
+  position: relative;
+  left: 50%;
+  border-left: 1px solid white;
+  margin-top: 1px;
+}
+
+#navbar {
+  height: 16%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+#navbar ul {
+  list-style-type: none;
+  text-align: center;
+  top: 25%;
+  position: relative;
+  height: 8vh;
+  width: 100%;
+  font-size: 0px;
+}
+
+#navbar li {
+  display: inline-block;
+  font-size: 0px;
+  position: relative;
+  top: 33.3%;
+  margin:0 1.5vh;
+  text-align: center;
+  transition: top 0.75s;
+}
+
+#navbar li a {
+  font-family: 'Mukta Malar', sans-serif;
+  font-size: 2.66vh;
+  line-height: 100%;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding-bottom: 2.66vh;
+  text-transform: lowercase;
+}
+
+#navbar li a:hover {
+  border-bottom: 1px solid white;
+}
+
+#section1 {
+  height: 100vh;
+  background: #202020;
+}
+
+#section2 {
+  height: 100vh;
+  background: #414141;
+}
+
+/*classes*/
+
+/*tentar fazer um usando 2 formando um V */
+.loadbar {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 33%;
+  height: 1px;
+  background-color: black;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: animate 1s linear 0s infinite alternate;
+}
+
+.loading {
+    overflow: hidden;
+}
+
+.preloader {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: white;
+	z-index: 100;
+}
+
+@keyframes animate {
+  0% {
+  	background-color: red;
+  	transform-origin: left;
+  	transform: translateX(0) scaleX(0);
+  	left: 33%
+  	right: auto;
+  }
+  25% {
+  	background-color: yellow;
+  	left: 33%;
+  	right: auto;
+  }
+
+  49% {
+  	transform-origin: left;
+  	transform: translateX(0) scaleX(1);
+  	left: 33%;
+  	right: auto;
+  }
+
+  50% {
+  	background-color: green;
+  	left: 33%;
+  	right: 33%;
+  }
+
+  51% {
+  	transform-origin: right;
+  	transform: translateX(0) scaleX(1);
+  	left: auto;
+  	right: 33%;
+  }
+
+  75% {
+  	background-color: blue;
+  	left: auto;
+  	right: 33%;
+  }
+
+  100% {
+  	background-color: red;
+  	transform-origin: right;
+  	transform: translateX(0) scaleX(0);
+  	left: auto;
+  	right: 33%;
+  }
+}
+/*
+div.mid {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	transition: background-color 1s;
+}
+
+
+div.mid:hover {
+	background-color: #ffffff;
+}
+*/
