@@ -20,14 +20,14 @@ html, body{
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #414141; 
+    background: #393939; 
 }
 /*ids*/
 
 #cover {
   height: 100vh;
   width: 100%;
-  color: white;
+  color: white; /* talvez um banner com robozinho, algo que lembre tech, com uma pitada de humor de preferencia*/
   /*
   background-image: url("../img/photo.jpeg");
   background-repeat: no-repeat;
@@ -70,33 +70,95 @@ html, body{
   top: 33.3%;
   margin:0 1.5vh;
   text-align: center;
-  transition: top 0.75s;
+  transition: top 0.7s;
 }
 
 #navbar li a {
-  font-family: 'Mukta Malar', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 2.66vh;
   line-height: 100%;
   display: inline-block;
   color: white;
   text-decoration: none;
   padding-bottom: 2.66vh;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
-#navbar li a:hover {
-  border-bottom: 1px solid white;
+#navbar li a.nav1:hover {
+  border-bottom: 2px solid red;
+}
+
+#navbar li a.nav2:hover {
+  border-bottom: 2px solid yellow;
+}
+
+#navbar li a.nav3:hover {
+  border-bottom: 2px solid green;
+}
+
+#navbar li a.nav4:hover {
+  border-bottom: 2px solid blue;
 }
 
 #section1 {
   height: 100vh;
-  background: #202020;
+  background: black;
+  color: white;
+  transition: background 0.5s;
 }
 
 #section2 {
   height: 100vh;
-  background: #414141;
+  width: 100%;
+  background: #262626;
+  color: white;
+  transition: background 0.5s;
 }
+
+#welcome {
+  position: relative;
+  top: 30%;
+  text-align: right;
+  font-family: 'Oswald', sans-serif;
+  width: 49vw;
+  float: left;
+  margin-right: 2vw;
+}
+
+#welcome h1 {
+  font-size: 11vw;
+  text-transform: uppercase;
+  line-height: 100%;
+}
+
+#welcome h2 {
+  font-size: 8vw;
+  text-transform: uppercase;
+  line-height: 100%;
+}
+
+#welcome-text {
+  float: left;
+  position: relative;
+  top: 30%;
+  text-align: left;
+  font-family: 'Oswald', sans-serif;
+  width: 25vw;
+}
+
+#welcome-text h3 {
+  font-size: 2.5vw;
+  line-height: 100%;
+  width: 18vw;
+}
+
+#welcome-text p {
+  margin-top: 1vw;
+  font-size: 1.5vw;
+  width: 27vw;
+  font-family: 'Old Standard TT', serif;
+}
+
 
 /*classes*/
 
