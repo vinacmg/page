@@ -3,7 +3,7 @@ $(window).on('load', function(){
 	setTimeout(function(){ //simulação
 		$('.preloader').fadeOut(1000);
 		$('body').removeClass('loading');
-	}, 2000);
+	}, 4000);
 	*/
 	$('.preloader').fadeOut(1000);
 	$('body').removeClass('loading');
@@ -31,6 +31,13 @@ $(document).ready(function(){
 
 	var section1 = false;
 	var section2 = false;
+
+	var booleans = {
+		section1: false,
+		section1text: false,
+		section2: false,
+		section2text: false
+	};
 
 	var vh = $(window).height()/100;
 
@@ -102,69 +109,54 @@ $(document).ready(function(){
 		}
 	}
 	
-	function showBitbyBit(father) {
+	function showBitbyBit(father, delay, fade, showTrigger = true, textToShow) {
 		var kids = father.children();
 
-		if((father.offset().top - 10*vh) <= $(window).scrollTop()){
+		if((father.offset().top - 35*vh) <= $(window).scrollTop() && !showTrigger){
 			for(var i = 0; i < kids.length; i++) {
-				$(kids[i]).delay(i*300).fadeIn(1000);
+				$(kids[i]).delay(i*delay).show(fade);
 			}
+			booleans[textToShow] = true;
 		}
 	}
 
-	function hideChildren(father) {
-		var kids = father.children();
-
-		if((father.offset().top - 100*vh) > $(window).scrollTop()){
-			for(var i = 0; i < kids.length; i++) {
-				$(kids[i]).hide();
-			}
-		}
-	}
-
-	function animateSec1() {
-		if(($('#section1').offset().top - 10*vh) <= $(window).scrollTop()){
-			if(!section1){
-				$('#section1').css('background-color', '#262626');
-				section1 = true;
+	function changeSecColor(section, colorbf, coloraft) {
+		if(($(section).offset().top - 25*vh) <= $(window).scrollTop()){
+			if(!booleans[section]){
+				$(section).css('background-color', coloraft);
+				booleans[section] = true;
 			} 
 			else return;
 		} else {
-			if(!section1) return;
+			if(!booleans[section]) return;
 			else {
-				$('#section1').css('background-color', 'black');
-				section1 = false;
-			}
-		}
-	}
-
-	function animateSec2() {
-		if(($('#section2').offset().top - 10*vh) <= $(window).scrollTop()){
-			if(!section2){
-				$('#section2').css('background-color', '#393939');
-				section2 = true;
-			} 
-			else return;
-		} else {
-			if(!section1) return;
-			else {
-				$('#section2').css('background-color', '#262626');
-				section2 = false;
+				$(section).css('background-color', colorbf);
+				booleans[section] = false;
 			}
 		}
 	}
  
-	hideChildren($('#section1'));
+	$('#section1').children().hide();
+	$('.section2-img-father').children().hide();
 
 	$(window).scroll(function(){
 
+		if($(window).scrollTop() === 0){
+			$('#section1').children().hide();
+			$('.section2-img-father').children().hide();
+			booleans.section1text = false;
+			booleans.section2text = false;
+		}  
+
 		animateNavBar();
+		
+		/*
+		changeSecColor('#section1', 'black', '#262626');
+		changeSecColor('#section2', '#262626', '#393939');
+		*/
 
-		animateSec1();
-		animateSec2();
-
-
-		showBitbyBit($('#section1'));
+		showBitbyBit($('#section1'), 300, 1000, booleans.section1text, 'section1text');
+		showBitbyBit($('.section2-img-father'), 300, 1000, booleans.section2text, 'section2text');
 
 		
 	});

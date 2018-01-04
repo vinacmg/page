@@ -104,15 +104,14 @@ html, body{
   height: 100vh;
   background: black;
   color: white;
-  transition: background 0.5s;
 }
 
 #section2 {
   height: 100vh;
   width: 100%;
-  background: #262626;
+  background: white; //#262626
   color: white;
-  transition: background 0.5s;
+  overflow-x: hidden;
 }
 
 #welcome {
@@ -123,6 +122,7 @@ html, body{
   width: 49vw;
   float: left;
   margin-right: 2vw;
+  display: none;
 }
 
 #welcome h1 {
@@ -144,6 +144,7 @@ html, body{
   text-align: left;
   font-family: 'Oswald', sans-serif;
   width: 25vw;
+  display: none;
 }
 
 #welcome-text h3 {
@@ -161,6 +162,10 @@ html, body{
 
 
 /*classes*/
+
+.hidden {
+  display: none;
+}
 
 /*tentar fazer um usando 2 formando um V */
 .loadbar {
@@ -185,6 +190,83 @@ html, body{
 	position: fixed;
 	background-color: white;
 	z-index: 100;
+}
+
+@media (min-width: 1000px) {
+  /*
+  .section2-image1 {
+    transition: transform 0.7s;
+  }
+
+  .section2-image1:hover {
+    transform: translate(33%, 30%) scale(1.66);
+  }
+
+  .section2-image1:hover ~ .section2-image2 {
+    transform: translate(233%, 0);
+  }
+
+  .section2-image1:hover ~ .section2-image3 {
+    transform: translate(233%, 0);
+  }
+
+  .section2-image2 {
+    transition: transform 0.7s;
+  }
+
+  .section2-image2:hover {
+    transform: scale(1.66);
+  }
+
+  .section2-image2:hover > .section2-image1 {
+    transform: scale(0);
+  }
+
+  .section2-image2:hover ~ .section2-image3 {
+    transform: translate(233%, 0);
+  }
+
+  .section2-image3 {
+    transition: transform 0.7s;
+  }
+
+  .section2-image3:hover {
+    transform: translate(-33%, -27%) scale(1.66);
+  }
+*/
+
+  .section2-img-father {
+    width: 35%;
+    height: 35%;
+    display: inline-block;
+    position: relative;
+    left: 20.95%;
+    top: 30%;
+  }
+
+  .section2-image1 {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 6;
+  }
+
+  .section2-image2 {
+    position: absolute;
+    width: 100%;
+    left: 33%;
+    top: 30%;
+    z-index: 7;
+  }
+
+  .section2-image3 {
+    position: absolute;
+    width: 100%;
+    left: 66%;
+    top: 60%;
+    z-index: 8;
+  }
 }
 
 @keyframes animate {
